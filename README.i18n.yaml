@@ -1,0 +1,46 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write README.md
+/luwu-harness:
+  en: 63e1d0c694bad6e6
+  zh: 202606d2f88817ba
+/luwu-harness/what-this-is:
+  en: 9b22c0629656d859
+  zh: d177d4d5700f6a5d
+/luwu-harness/requirements:
+  en: 26ae76713645f842
+  zh: eb5291557df75020
+/luwu-harness/build-and-run:
+  en: 587dbcdcb76795f5
+  zh: 737bd91b790e3e09
+/luwu-harness/build-and-run/install-dependencies:
+  en: a791fe4ac85d3c06
+  zh: 4332f98b984aba46
+/luwu-harness/build-and-run/run-in-development:
+  en: 99e186da1c91eb8e
+  zh: 8fb77ae0fb898265
+/luwu-harness/build-and-run/package-a-distributable:
+  en: 096a88d747f57677
+  zh: 91dcb6a557fa2f8b
+/luwu-harness/versioning:
+  en: b3ea156803315fa2
+  zh: 3b42573caf9c576b
+/luwu-harness/repository-layout:
+  en: b083fad0bc62c2a0
+  zh: 2dbce40272305e9c
+/luwu-harness/configuration-and-data:
+  en: 07a4e13b97875762
+  zh: 681cdf2b6d532500
+/luwu-harness/privacy-defaults:
+  en: aab3d32dab0d8a4e
+  zh: 3f0fad57135c2773
+/luwu-harness/testing:
+  en: 4e31d9cf88238719
+  zh: f28cc4ea064d6d58
+/luwu-harness/troubleshooting:
+  en: 6057124a6d504313
+  zh: 2d3b231e1650d074
+/luwu-harness/license:
+  en: b94140ebc70473a5
+  zh: 5e77a9e42d573cda

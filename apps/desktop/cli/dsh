@@ -1,0 +1,28 @@
+#!/bin/sh
+# Run the installed CLI without changing the invoking shell or working directory.
+set -e
+launcher=$0
+while [ -L "$launcher" ]; do
+  directory=$(CDPATH= cd -- "$(dirname -- "$launcher")" && pwd -P)
+  target=$(readlink "$launcher")
+  case "$target" in
+    /*) launcher=$target ;;
+    *) launcher=$directory/$target ;;
+  esac
+done
+resources=$(CDPATH= cd -- "$(dirname -- "$launcher")/../../.." && pwd -P)
+# LWH-LOCAL PATCH (LuWu Harness): resolve the bundle's own executable instead of hardcoding the
+# published product name, so a renamed build keeps a working `dsh` command. The bundle's `MacOS`
+# directory holds exactly one executable: the application binary itself.
+executable=''
+for candidate in "$resources"/../MacOS/*; do
+  if [ -x "$candidate" ] && [ ! -d "$candidate" ]; then
+    executable=$candidate
+    break
+  fi
+done
+if [ -z "$executable" ]; then
+  echo "dsh: cannot locate the application executable under $resources/../MacOS" >&2
+  exit 1
+fi
+ELECTRON_RUN_AS_NODE=1 exec "$executable" --expose-internals "$resources/app.asar/dsh/node_modules/@deepseek-ai/dsh-desktop-host/lib/cli.js" "$@"
